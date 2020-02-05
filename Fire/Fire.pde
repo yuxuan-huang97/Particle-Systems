@@ -161,9 +161,9 @@ void drawScene(){
   updateCam();
   camera(campos.x, campos.y, campos.z, camfoc.x, camfoc.y, camfoc.z , 0, 1, 0);
   for (int i = 0; i < POS.size(); i++) {
-    if (COL.get(i).z == 0) strokeWeight(4);
+    if (COL.get(i).z == 0) strokeWeight(6);
     else strokeWeight(4 + 0.2 * (lifespan2 - LIFE.get(i)));
-    stroke(COL.get(i).x, COL.get(i).y, COL.get(i).z);
+    stroke(COL.get(i).x, COL.get(i).y, COL.get(i).z, 125);
     point(POS.get(i).x, POS.get(i).y, POS.get(i).z);
   }
   pushMatrix();
