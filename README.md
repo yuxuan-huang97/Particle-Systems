@@ -1,5 +1,5 @@
 # Particle-Systems
-This is a series of particle systems implemented with Processing in Java
+A series of particle systems implemented with Processing in Java
 
 
 External Resources
