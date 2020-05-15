@@ -30,18 +30,21 @@ boolean lw = false;
 boolean rw = false;
 boolean mm = false; // mouse moved
 
-PVector campos = new PVector(300, 300, 350);
+PVector campos = new PVector(500, 300, 500);
 PVector camfoc = new PVector(300, 400, -300);
 PVector up = new PVector(0, -1, 0);
 
 float delta_x;
 float delta_y;
 
+float startTime;
+
 // Creates a 600x600 window for 3D graphics 
 void setup() {
  size(600, 600, P3D);
  noStroke(); //Question: What does this do? Answer: It hides the outline of the primitives
  s = loadShape("Candle.obj");
+ startTime = millis();
 }
 
 // Generate particles for a timestep
@@ -70,7 +73,8 @@ void ParticleGen() {
   VEL.add(v);
   COL.add(c);
   LIFE.add(life);
-  if (POS.size() > 3000 && Math.random() < 0.01) {
+  /*
+  if (POS.size() > 3000 && Math.random() < 0.05) {
     p = GenPos(300, 200, -300, 5);
     v = GenVel(0, -2, 0, 2);
     float smkclr = ((float)Math.random() + 1) * 100;
@@ -81,7 +85,7 @@ void ParticleGen() {
     COL.add(c);
     LIFE.add(life);
     
-  }
+  }*/
 }
 
 // Generate initial position (sampled from a disk)
@@ -161,9 +165,9 @@ void drawScene(){
   updateCam();
   camera(campos.x, campos.y, campos.z, camfoc.x, camfoc.y, camfoc.z , 0, 1, 0);
   for (int i = 0; i < POS.size(); i++) {
-    if (COL.get(i).z == 0) strokeWeight(6);
+    if (COL.get(i).z == 0) strokeWeight(10);
     else strokeWeight(4 + 0.2 * (lifespan2 - LIFE.get(i)));
-    stroke(COL.get(i).x, COL.get(i).y, COL.get(i).z, 125);
+    stroke(COL.get(i).x, COL.get(i).y, COL.get(i).z, 80);
     point(POS.get(i).x, POS.get(i).y, POS.get(i).z);
   }
   pushMatrix();
@@ -197,10 +201,13 @@ void updateCam() {
 //Main function which is called every timestep. Here we compute the new physics and draw the scene.
 //Additionally, we also compute some timing performance numbers.
 void draw() {
+  float elapsedTime = millis() - startTime;
+  startTime = millis();
   float startFrame = millis(); //Time how long various components are taking
   //Compute the physics update
   //computePhysics(timer/1000.0); //Question: Should this be a fixed number?
   computePhysics(0.2);
+  //computePhysics(elapsedTime/1000.0);
   float endPhysics = millis();
   //Draw the scene
   drawScene();
