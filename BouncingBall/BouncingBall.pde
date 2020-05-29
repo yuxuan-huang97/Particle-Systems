@@ -8,6 +8,8 @@
 // If you are new to processing, you can find an excellent tutorial that will quickly
 // introduce the key features here: https://processing.org/tutorials/p3d/
 
+// This code is modified by Yuxuan Huang into a 3D bouncing ball demo
+
 String projectTitle = "Bouncing Ball";
 
 //Animation Principle: Store object & world state in external variables that are used by both
