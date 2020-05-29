@@ -1,5 +1,5 @@
 // Created for CSCI 5611
-
+// Modified into a magic wand simulation by Yuxuan Huang
 
 // If you are new to processing, you can find an excellent tutorial that will quickly
 // introduce the key features here: https://processing.org/tutorials/p3d/
