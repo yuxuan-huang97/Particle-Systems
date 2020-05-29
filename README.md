@@ -1,5 +1,7 @@
 # Particle-Systems
-A series of particle systems implemented with Processing in Java
+A series of particle systems implemented by Yuxuan Huang in Processing.
+
+More information can be found at https://yxhuang97.wordpress.com/physical-simulations/
 
 
 External Resources
