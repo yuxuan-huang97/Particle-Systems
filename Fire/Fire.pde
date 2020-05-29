@@ -1,5 +1,5 @@
 // Created for CSCI 5611
-
+// Modified by Yuxuan Huang into a Fire Simulation using particle systems
 
 // If you are new to processing, you can find an excellent tutorial that will quickly
 // introduce the key features here: https://processing.org/tutorials/p3d/
